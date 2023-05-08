@@ -1,6 +1,7 @@
 import express from 'express';
 import dbmysql from './database/dbmysql.js'
 import routerProgramas from './routes/programaRoutes.js';
+import routerLibrerias from './routes/libreriaRoutes.js'
 
 const app = express();
 
@@ -10,6 +11,7 @@ app.get('/', (req, res) => {
 
 
 app.use('/programas', routerProgramas)
+app.use('/librerias', routerLibrerias)
 
 app.listen(process.env.PORT, () => {
   console.log('El servidor está funcionando en el puerto ', process.env.PORT);

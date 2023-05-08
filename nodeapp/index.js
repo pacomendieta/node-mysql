@@ -12,6 +12,10 @@ app.get('/', (req, res) => {
 
 app.use('/programas', routerProgramas)
 app.use('/librerias', routerLibrerias)
+app.use((req, res, next) => {
+   res.status(404).send("Pagina 404")
+  //res.status(404).sendFile(__dirname + '/public/404.html');
+});
 
 app.listen(process.env.PORT, () => {
   console.log('El servidor está funcionando en el puerto ', process.env.PORT);

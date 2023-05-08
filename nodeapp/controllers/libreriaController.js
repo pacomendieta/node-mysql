@@ -1,4 +1,4 @@
-import Libreria from "../models/libreria.js"
+import Libreria from "../modelos/libreria.js"
 
 const listarLibrerias = (req,res)=>{
     console.log("listarLibrerias()...")

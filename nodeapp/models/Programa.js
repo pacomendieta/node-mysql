@@ -1,16 +1,27 @@
-import { DataTypes } from "sequelize";
-import db from "../database/dbmysql.js";
-
-// Modelo se define con un objeto bd = conexion a la BBDD
-const Programa = db.define('programa',{
-  program_id: { type:DataTypes.INTEGER,primaryKey:true, autoincrement:true},
-  nombre: {type: DataTypes.STRING}
-},
-{ 
-  timestamps: true,
-}
-
-
-)
-
-export default Programa;
+'use strict';
+//const {   Model } = require('sequelize');
+import { Model } from ('sequelize')
+module.exports = (sequelize, DataTypes) => {
+  class Programa extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here. Program<-->Libreria
+      models.Program.belongsToMany( models.Libreria, {
+        through: "ProgramasLibrerias",
+        as: "librerias", 
+        foreignKey: "program_id" 
+       } );
+    }
+  }
+  Programa.init({
+    nombre: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Programa',
+  });
+  return Programa;
+};

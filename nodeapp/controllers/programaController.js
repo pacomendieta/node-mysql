@@ -1,4 +1,4 @@
-import Programa from "../models/programa.js"
+import Programa from "../modelos/programa.js"
 
 const listarProgramas = (req,res)=>{
     Programa.findAll()

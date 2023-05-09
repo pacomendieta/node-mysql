@@ -12,6 +12,9 @@ module.exports = {
       nombre: {
         type: Sequelize.STRING
       },
+      descripcion: {
+        type: Sequelize.STRING
+      },
       lenguajeId: {
         type: Sequelize.INTEGER,
         references: {

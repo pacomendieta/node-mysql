@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
   res.send('Hola, mundo!');
 });
 
-
+app.use ( express.json() )
 app.use('/programas', routerProgramas)
 app.use('/librerias', routerLibrerias)
 app.use((req, res, next) => {

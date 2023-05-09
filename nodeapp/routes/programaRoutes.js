@@ -3,6 +3,9 @@ const programaController = require( '../controllers/programaController.js')
 
 const router = express.Router()
 
-router.get('/', (req,res)=>programaController.listarProgramas(req,res) )
+router.get('/', (req,res)=>programaController.listaProgramas(req,res) )
+router.post('/:id', (req,res)=>programaController.updatePrograma(req,res) )
+router.put('/insert', (req,res)=>programaController.insertPrograma(req,res) )
+router.delete('/:id', (req,res)=>programaController.deletePrograma(req,res) )
 
 module.exports =  router

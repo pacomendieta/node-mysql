@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Programa.init({
     nombre: DataTypes.STRING,
+    descripcion: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Programa',

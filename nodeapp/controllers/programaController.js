@@ -27,7 +27,7 @@ const updatePrograma = (req, res)=>{
 
 const insertPrograma = (req, res)=>{
     repositorio.insert( req.body )
-    .then( ()=>res.status(200).send("Insertado ok"))
+    .then( (pro)=>res.status(200).send("Ok"))
     .catch(error=>console.log("Error insertando:", error)) 
 }
 

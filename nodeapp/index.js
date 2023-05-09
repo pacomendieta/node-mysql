@@ -1,7 +1,7 @@
-import express from 'express';
-import dbmysql from './database/dbmysql.js'
-import routerProgramas from './routes/programaRoutes.js';
-import routerLibrerias from './routes/libreriaRoutes.js'
+const express = require ('express');
+const  dbmysql= require ('./database/dbmysql.js')
+const  routerProgramas = require ('./routes/programaRoutes.js')
+const routerLibrerias  = require ( './routes/libreriaRoutes.js')
 
 const app = express();
 

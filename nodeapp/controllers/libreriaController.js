@@ -1,4 +1,5 @@
-import Libreria from "../modelos/libreria.js"
+const { Libreria } = require ( "../models" )
+const { Programaslibrerias}  = require("../models")
 
 const listarLibrerias = (req,res)=>{
     console.log("listarLibrerias()...")
@@ -11,17 +12,20 @@ const listarLibrerias = (req,res)=>{
 }
 
 //librerias de un programa  (/librerias/p)
-const listarLibreriasPrograma = (req,res)=>{
-    console.log("listarLibreriasPrograma()...")
-    Libreria.findAll( { where: {program_id:req.query.program}})
-    .then( (data)=>{
-        res.status(200).json(data)      
-    }
+const listarLibreriasPrograma = async (req,res)=>{
+    console.log("listarLibreriasPrograma()...",req.query.program)
+    let libs = await Programaslibrerias.findAll ( 
+        {
+            attributes:['libreriaId'],
+            where:{programaId:req.query.program }
+        },
+        
     )
-    .catch( (err)=>{ console.log("Error ", err)})
+    console.log("Librerias:", libs)
+    res.status(200).json(libs)   
 }
 
-export default {
+module.exports = {
     listarLibrerias,
     listarLibreriasPrograma
 }

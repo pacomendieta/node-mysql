@@ -1,4 +1,4 @@
-import Programa from "../modelos/programa.js"
+const { Programa } = require('../models')
 
 const listarProgramas = (req,res)=>{
     Programa.findAll()
@@ -9,6 +9,6 @@ const listarProgramas = (req,res)=>{
     .catch( (err)=>{ console.log("Error ", err)})
 }
 
-export default {
+module.exports =  {
     listarProgramas
 }

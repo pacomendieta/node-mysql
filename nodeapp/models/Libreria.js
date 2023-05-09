@@ -1,6 +1,6 @@
 'use strict';
-//const {   Model } = require('sequelize');
-import { Model } from ('sequelize')
+const {   Model } = require('sequelize');
+//import { Model } from ('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class Libreria extends Model {
     /**
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       models.Libreria.belongsToMany( models.Programa, {
         through: "ProgramasLibrerias",
         as: "programas", 
-        foreignKey: "libreria_id" 
+        foreignKey: "libreriaId" 
        } );
     }
   }
@@ -22,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Libreria',
+    tableName: 'librerias'
   });
   return Libreria;
 };

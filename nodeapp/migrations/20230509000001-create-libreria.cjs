@@ -2,19 +2,17 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Libreria', {
+    await queryInterface.createTable('librerias', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      lib_id: {
-        type: Sequelize.INTEGER
-      },
       nombre: {
         type: Sequelize.STRING
       },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -26,6 +24,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Libreria');
+    await queryInterface.dropTable('librerias');
   }
 };

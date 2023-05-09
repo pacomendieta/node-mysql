@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Node Backend usando MySQL, Sequelize",
   "main": "index.js",
-  "type": "module",
-  "scripts": {
+    "scripts": {
     "dev": "env-cmd -f .env.development nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

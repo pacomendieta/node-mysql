@@ -14,11 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   programaslibrerias.init({
-    program_id: DataTypes.INTEGER,
-    libreria_id: DataTypes.INTEGER
+    programaId: DataTypes.INTEGER,
+    libreriaId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'programaslibrerias',
+    modelName: 'Programaslibrerias',
+    tableName: 'programaslibrerias'
   });
   return programaslibrerias;
 };

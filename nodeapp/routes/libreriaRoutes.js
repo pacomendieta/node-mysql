@@ -1,5 +1,6 @@
-import express from 'express'
-import libreriaController from '../controllers/libreriaController.js'
+const  express = require('express')
+const  libreriaController = 
+require ( '../controllers/libreriaController.js')
 
 const router = express.Router()
 
@@ -11,4 +12,4 @@ router.get('/', (req,res)=>{
         libreriaController.listarLibrerias(req,res)
 } )
 
-export default router
+module.exports =  router

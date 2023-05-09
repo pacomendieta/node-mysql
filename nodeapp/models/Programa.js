@@ -1,6 +1,6 @@
 'use strict';
-//const {   Model } = require('sequelize');
-import { Model } from ('sequelize')
+const {   Model } = require('sequelize');
+//import { Model } from 'sequelize'
 module.exports = (sequelize, DataTypes) => {
   class Programa extends Model {
     /**
@@ -10,18 +10,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here. Program<-->Libreria
-      models.Program.belongsToMany( models.Libreria, {
+      models.Programa.belongsTo(models.Lenguaje)
+      
+      models.Programa.belongsToMany( models.Libreria, {
         through: "ProgramasLibrerias",
         as: "librerias", 
-        foreignKey: "program_id" 
+        foreignKey: "programaId" 
        } );
     }
   }
   Programa.init({
-    nombre: DataTypes.STRING
+    nombre: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Programa',
+    tableName: 'programas'
   });
   return Programa;
 };

@@ -2,28 +2,25 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('programaslibrerias', {
+    await queryInterface.createTable('programas', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      program_id: {
-        type: Sequelize.INTEGER,
-        onDelete:'CASCADE',
-        references: {
-          model: 'Programas',
-          key: 'id'
-        }
+      nombre: {
+        type: Sequelize.STRING
       },
-      libreria_id: {
+      lenguajeId: {
         type: Sequelize.INTEGER,
-        onDelete:'CASCADE',
         references: {
-          model: 'Librerias',
-          key: 'id'
-        }        
+          model: 'lenguajes',
+          key: 'id',
+       },
+       onDelete: 'CASCADE',
+       onUpdate: 'CASCADE'
+        
       },
       createdAt: {
         allowNull: false,
@@ -36,6 +33,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('programaslibrerias');
+    await queryInterface.dropTable('programas');
   }
 };

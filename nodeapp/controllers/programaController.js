@@ -39,10 +39,22 @@ const deletePrograma = (req, res)=>{
 }
 
 
+const sqlPrograma = (req, res)=>{
+    var x = 2
+    db.Programa.sequelize.query(`select * from programas where programas.id in (select programaId from programaslibrerias where lenguajeId=${x})`,
+    { type: db.Programa.sequelize.QueryTypes.SELECT } )
+    .then(resultados => {
+        res.json(resultados); // mostrar los resultados de la consulta
+      })
+    .catch(error => {
+        console.error(error); // manejar cualquier error que ocurra
+     });
+}
 
 module.exports =  {
     listaProgramas,
     updatePrograma,
     insertPrograma,
-    deletePrograma
+    deletePrograma,
+    sqlPrograma
 }
